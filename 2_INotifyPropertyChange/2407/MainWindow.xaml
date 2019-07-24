@@ -1,0 +1,35 @@
+﻿<Window x:Class="_2407.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_2407"
+        mc:Ignorable="d"
+               Title="MainWindow" Height="350" Width="525">
+    <StackPanel x:Name="grid1">
+
+        <TextBox Text="{Binding MyPerson1.Name, Mode=TwoWay}" VerticalAlignment="Top"
+               x:Name="txt1" Margin="50 10"
+               />
+        <Label Content="{Binding MyPerson1.Name, Mode=OneWay}" VerticalAlignment="Top"
+               x:Name="lbl1"
+               />
+        <Button>Hi</Button>
+
+        <Button Content="Hover over me please...." HorizontalAlignment="Left" 
+                Margin="31,98,0,0" VerticalAlignment="Top" Width="149" Click="Button_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Foreground" Value="Blue"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding MyPerson1.Name}" Value="Yakov">
+                            <Setter Property="Foreground" Value="Red"/>
+                            <Setter Property="FontWeight" Value="ExtraBold"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+    </StackPanel>
+</Window>
